@@ -4,7 +4,7 @@ tags: [Data_Structure, Array, List, Vector, ArrayList]
 style: fill
 color: success
 comments: true
-description: aasdasd
+description: what's about Datastructure & Array
 ---
 # What is data Structure
 
