@@ -1,7 +1,7 @@
 ---
 title: Process Scheduling 
 tags: [OS, Process_Scheduling]
-style:border
+style: border
 color: secondary
 comments: true
 description: what's about Process Scheduling
