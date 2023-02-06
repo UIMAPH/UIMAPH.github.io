@@ -13,9 +13,9 @@ description: what's about OS & Thread
 
 ![img](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter2/2_01_OS_Services.jpg)
 
-os는 가장 primary한 software로써 하드웨어와 user and other system programs의 사이에 위치한다.\
-\
-눈여겨 볼것은 os가 위와같은 계층의 형태를 띄고 있다.\
+os는 가장 primary한 software로써 하드웨어와 user and other system programs의 사이에 위치한다.
+
+눈여겨 볼것은 os가 위와같은 계층의 형태를 띄고 있다.
 
 ## 현대 OS의 종류
 1. Windows 
@@ -34,29 +34,29 @@ os는 가장 primary한 software로써 하드웨어와 user and other system pro
 > 하나 혹은 그 이상의 Thread로 실행되는 컴퓨터 프로그램의 instance이다. Process는 Program code와 그 activity를 포함한다.\
 > [출처](https://ko.wikipedia.org/wiki/프로세스)
 
-즉, Task와 같은 의미를 띄고 있다.\
+즉, Task와 같은 의미를 띄고 있다.
 #### Process의 구조
 
 ![이미지](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter3/3_01_Process_Memory.jpg)
 
-대략 위와같은 구조를 각 Process별로 가지고 있다.\
-자세한 사항은 [[Process Memory Allocation]]에 포스팅 하겠다.\
+대략 위와같은 구조를 각 Process별로 가지고 있다.
+자세한 사항은 [[Process Memory Allocation]]에 포스팅 하겠다.
 대략적으로
 - stack
-	- 매개변수, 지역변수, return 주소 등과 같은 데이터를 저장하는 영역이다.
-	- 컴파일러에 의해 Run Time 도중 크기가 결정되며, 함수가 호출&종료 되는 시점에 생성&제거된다.
+    - 매개변수, 지역변수, return 주소 등과 같은 데이터를 저장하는 영역이다.
+    - 컴파일러에 의해 Run Time 도중 크기가 결정되며, 함수가 호출&종료 되는 시점에 생성&제거된다.
 - heap
-	- new, delete, malloc, free 등을 호출하여 데이터를 저장&관리하는 영역
-	- Run time에 크기가 결정된다.
+    - new, delete, malloc, free 등을 호출하여 데이터를 저장&관리하는 영역
+    - Run time에 크기가 결정된다.
 - Data Section
-	- 사전에 선언된 데이터가 저장되는 영역 (global static variables, etc)
-	- Compile time에 크기가 결정된다.
-	- 내부에서 DATA & BBS 영역으로 구분된다.
-	- initialized data section : 초기화된 전역 변수가 저장되는 영역(DATA)
-	- uninitialized data section : 초기화되지 않은 전역 변수가 저장되는 영역(BBS)
+    - 사전에 선언된 데이터가 저장되는 영역 (global static variables, etc)
+    - Compile time에 크기가 결정된다.
+    - 내부에서 DATA & BBS 영역으로 구분된다.
+    - initialized data section : 초기화된 전역 변수가 저장되는 영역(DATA)
+    - uninitialized data section : 초기화되지 않은 전역 변수가 저장되는 영역(BBS)
 - Text Section
-	- 컴파일된 기계어가 저장되는 영역
-	- Compile time에 크기가 결정된다.
+    - 컴파일된 기계어가 저장되는 영역
+    - Compile time에 크기가 결정된다.
 
 #### Process의 상태
 ![img](https://webeduclick.com/wp-content/uploads/2019/02/process.png)
@@ -92,8 +92,8 @@ Processor(이하 CPU)는 process단위로 일을 처리한다. OS도 그러한 P
 - 이는 하나의 프로세스가 잘못되어도 다른 프로세스에는 영향을 안끼친다는 장점 또한 파생한다.
 **단점**
 - 프로세스를 변경하는데 overhead가 크다.
-	- user-level에서 kernel-level로 가서 다음으로 실행될 process로 올리는 것은 많은 시간이 필요하다
-	- 또 이 과정에서 cache memory init와 같은 무거운 작업은 overhead가 발생한다.
+    - user-level에서 kernel-level로 가서 다음으로 실행될 process로 올리는 것은 많은 시간이 필요하다
+    - 또 이 과정에서 cache memory init와 같은 무거운 작업은 overhead가 발생한다.
 
 **Multi Thread**\
 이는 한 Process안에서의 작업이므로 많은 부분을 Thread끼리 공유한다. 이는 그 만큼 바꿀것이 적다는 것을 의미한다.
@@ -111,7 +111,7 @@ Processor(이하 CPU)는 process단위로 일을 처리한다. OS도 그러한 P
 -   주의 깊은 설계가 필요하고 디버깅이 어렵다. (불필요 부분까지 동기화하면, 대기시간으로 인해 성능 저하 발생)
 -   하나의 스레드에 문제가 생기면 전체 프로세스가 영향을 받는다.
 -   단일 프로세스 시스템의 경우 효과를 기대하기 어렵다.
-	- Thread를 병렬적으로 돌릴 수 있는 힘은 core가 여러개 있어서 병력실행이 가능하다는 점인데, 단일코어에서 thread를 여러개로 나눠서 context switching을 하는 것은 괜한 시간낭비가 될 수 있다.
+    - Thread를 병렬적으로 돌릴 수 있는 힘은 core가 여러개 있어서 병력실행이 가능하다는 점인데, 단일코어에서 thread를 여러개로 나눠서 context switching을 하는 것은 괜한 시간낭비가 될 수 있다.
 ### Multi Process VS Multi Thread
 -   멀티 스레드는 멀티 프로세스보다 작은 메모리 공간을 차지하고 `Context Switching`이 빠른 장점이 있지만, 동기화 문제와 하나의 스레드 장애로 전체 스레드가 종료될 위험을 갖고 있다.
 -   멀티 프로세스는 하나의 프로세스가 죽더라도 다른 프로세스에 영향을 주지 않아 안정성이 높지만, 멀티 스레드보다 많은 메모리 공간과 CPU 시간을 차지하는 단점이 있다.
@@ -155,13 +155,13 @@ OS는 빠른 process조회를 위해 process table(Linked list)을 가지고 있
 그래서 프로세스간 소통을 하기 위해 다양한 방법이 연구되었다.
 
 1. Message passing
-	커널을 통해 두 프로세스가 소통하는 방식\
-	이는 indirect와 direct방식이 있는데 위 그림은 message queue를 이용한 indirect방식이다.\
-	커널이 관여하고, 메시지 처리에 많은 실행이 소모되기 때문에 느리다.\
-	하지만 같은 메모리 동기화등의 과정은 필요하지 않다.
+    커널을 통해 두 프로세스가 소통하는 방식\
+    이는 indirect와 direct방식이 있는데 위 그림은 message queue를 이용한 indirect방식이다.\
+    커널이 관여하고, 메시지 처리에 많은 실행이 소모되기 때문에 느리다.\
+    하지만 같은 메모리 동기화등의 과정은 필요하지 않다.
 2. Shared Memory
-	프로세스간에 공유하는 메모리 영역을 가지고 있는 방식\
-	이는 빠르지만, 동기화가 보장되지 않는 만큼 구현에 있어 어렵고, 비동기적 실행으로 인해 생기는 다양한 문제점을 고려해야한다.
+    프로세스간에 공유하는 메모리 영역을 가지고 있는 방식\
+    이는 빠르지만, 동기화가 보장되지 않는 만큼 구현에 있어 어렵고, 비동기적 실행으로 인해 생기는 다양한 문제점을 고려해야한다.
 3. socket을 이용한 방식, memory map등 다양한 소통방식이 존재한다.
 
 
