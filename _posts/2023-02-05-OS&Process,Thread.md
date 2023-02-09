@@ -34,13 +34,13 @@ os는 가장 primary한 software로써 하드웨어와 user and other system pro
 > 하나 혹은 그 이상의 Thread로 실행되는 컴퓨터 프로그램의 instance이다. Process는 Program code와 그 activity를 포함한다.\
 > [출처](https://ko.wikipedia.org/wiki/프로세스)
 
-즉, Task와 같은 의미를 띄고 있다.
+즉, Task와 같은 의미를 띄고 있다.\
 #### Process의 구조
 
 ![이미지](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter3/3_01_Process_Memory.jpg)
 
-대략 위와같은 구조를 각 Process별로 가지고 있다.
-자세한 사항은 [[Process Memory Allocation]]에 포스팅 하겠다.
+대략 위와같은 구조를 각 Process별로 가지고 있다.\
+자세한 사항은 [[Process Memory Allocation]]에 포스팅 하겠다.\
 대략적으로
 - stack
     - 매개변수, 지역변수, return 주소 등과 같은 데이터를 저장하는 영역이다.
@@ -116,6 +116,9 @@ Processor(이하 CPU)는 process단위로 일을 처리한다. OS도 그러한 P
 -   멀티 스레드는 멀티 프로세스보다 작은 메모리 공간을 차지하고 `Context Switching`이 빠른 장점이 있지만, 동기화 문제와 하나의 스레드 장애로 전체 스레드가 종료될 위험을 갖고 있다.
 -   멀티 프로세스는 하나의 프로세스가 죽더라도 다른 프로세스에 영향을 주지 않아 안정성이 높지만, 멀티 스레드보다 많은 메모리 공간과 CPU 시간을 차지하는 단점이 있다.
 -   두 방법은 동시에 여러 작업을 수행하는 점에서 동일하지만, 각각의 장단이 있음으로 적용하는 시스템에 따라 적합한 동작 방식을 선택하고 적용해야 한다.
+> **그래서 뭘 사용하지?**\
+> 1. Multi Process는 IPC를 통해 소통하는데, 이는 메모리 사용측면에 오버헤드가 크고, 올바른 메모리 공유를 위한 복잡한 동기화가 필요하다.
+> 2. Multi Process는 한 프로세스가 잘못되어도 다른데 영향을 안미치기 때문에 디버깅에 큰 문제가 생긴다. 
 
 ## Context Switching & PCB
 ### PCB

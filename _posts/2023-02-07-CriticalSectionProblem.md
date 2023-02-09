@@ -30,17 +30,17 @@ description: what's about Critical Section
 ```c++
 while(1) {
     flag[i] = true;     // 프로세스 i가 임계영역 진입을 시도한다.
-	while(flag[j]) {    // 프로세스 j가 현재 임계영역에 있는지 확인한다.
-		if(turn == j) {     // 프로세스 j가 임계영역을 사용 중이라면
-			flag[i] = false;    // 프로세스 i의 진입을 취소하고,  
-			while (turn == j);  // turn이 j에서 바뀔 때 까지 기다린다...
-		    flag[i] = true;     // 임계영역에서 j가 나오면 재진입을 시도한다.
-		}
-	}
-	/* critical section */
-	turn = j;           // 임계영역의 사용이 끝나면, turn을 넘긴다
-	flag[i] = false;    // 진입 flag값을 false로 바꾸어 임계영역 사용 완료를 알린다.
-	...
+    while(flag[j]) {    // 프로세스 j가 현재 임계영역에 있는지 확인한다.
+        if(turn == j) {     // 프로세스 j가 임계영역을 사용 중이라면
+            flag[i] = false;    // 프로세스 i의 진입을 취소하고,  
+            while (turn == j);  // turn이 j에서 바뀔 때 까지 기다린다...
+            flag[i] = true;     // 임계영역에서 j가 나오면 재진입을 시도한다.
+        }
+    }
+    /* critical section */
+    turn = j;           // 임계영역의 사용이 끝나면, turn을 넘긴다
+    flag[i] = false;    // 진입 flag값을 false로 바꾸어 임계영역 사용 완료를 알린다.
+    ...
 }
 ```
 Flag와 Turn 이라는 변수로 임계영역에 들어갈 프로세스를 결정하는 알고리즘으로 turn을 통해 내 차례 라면 들어 가는 알고리즘이다.
@@ -52,13 +52,13 @@ Flag와 Turn 이라는 변수로 임계영역에 들어갈 프로세스를 결�
 ### Peterson Algorithm
 ```c++
 while(1){
-	flag[i] = true; // 프로세스 i가 임계영역 진입시도
-	turn = j; // 다른 프로세스에 진입기회를 양보
-	while(flag[j] && turn == j);
-	/* critical section */
-	...
-	flag[i] = false; //임계영역 사용완료
-	...
+    flag[i] = true; // 프로세스 i가 임계영역 진입시도
+    turn = j; // 다른 프로세스에 진입기회를 양보
+    while(flag[j] && turn == j);
+    /* critical section */
+    ...
+    flag[i] = false; //임계영역 사용완료
+    ...
 }
 ```
 Dekker와 비슷하지만 먼저 다른 프로세스를 확인 하고 기다린다는 점에서 조금 다르다.
@@ -71,17 +71,17 @@ Dekker와 비슷하지만 먼저 다른 프로세스를 확인 하고 기다린�
 ### Bakery Algorithm
 ```c++
 while(1){
-	choosing[i] = true;
-	number[i] = max(number[0] ... number[n-1]) + 1
-	choosing[i] = false;
-	for(int j = 0; j <= n-1; j++) {
-		while(choosing[j]);
-		while(number[j] != 0 &&((number[j],j)<(number[i],[i])));
-	}
-	/* critical section */
-	... 
-	number[i] = 0;
-	...
+    choosing[i] = true;
+    number[i] = max(number[0] ... number[n-1]) + 1
+    choosing[i] = false;
+    for(int j = 0; j <= n-1; j++) {
+        while(choosing[j]);
+        while(number[j] != 0 &&((number[j],j)<(number[i],[i])));
+    }
+    /* critical section */
+    ... 
+    number[i] = 0;
+    ...
 }
 ```
 위 두 알고리즘과 다르게 여러개의 프로세스나 쓰레드의 대한 처리가 가능하다.  
@@ -119,12 +119,12 @@ V(s);
 
 ```c++
 P(Semaphores){
-	while(S==0);
-	s = s - 1;
+    while(S==0);
+    s = s - 1;
 }
 
 V(Semaphores){
-	s = s + 1;
+    s = s + 1;
 }
 ```
 

@@ -12,16 +12,16 @@ description: what's about Process Scheduling
 
 **3가지 scheduling 단위**  
 - Long-term scheduling
-	ready 큐로 어떤 process를 보낼것인가?  
-	수행빈도가 적고, 느립니다.  
-	**즉, 어떤 프로세스를 커널에 등록할 것인가를 정하는 것입니다.**
+    ready 큐로 어떤 process를 보낼것인가?  
+    수행빈도가 적고, 느립니다.  
+    **즉, 어떤 프로세스를 커널에 등록할 것인가를 정하는 것입니다.**
 - Middle-term scheduling
-	어떤 process가 CPU를 할당받을 것인가?  
-	**즉, 어떤 프로세스에게 메모리를 할당할 것인가**
+    어떤 process가 CPU를 할당받을 것인가?  
+    **즉, 어떤 프로세스에게 메모리를 할당할 것인가**
 - Short-term scheduling
-	CPU를 할당받는 시기와, 특정 프로세스를 지정하는 작업  
-	자주 수행되고 빠릅니다.  
-	**어떤 프로세스에게 CPU를 할당할 것인가?**
+    CPU를 할당받는 시기와, 특정 프로세스를 지정하는 작업  
+    자주 수행되고 빠릅니다.  
+    **어떤 프로세스에게 CPU를 할당할 것인가?**
 
 ## Non-Preemptive Scheduling
 > **정의**\
@@ -84,8 +84,8 @@ description: what's about Process Scheduling
 
 **장단점**  
 - Time Quantum의 적절한 설정이 중요하다
-	- 너무 클 경우, FCFS와 다른 점이 없다
-	- 너무 작을 경우, context switching이 잦게 발생해 over header가 커진다.
+    - 너무 클 경우, FCFS와 다른 점이 없다
+    - 너무 작을 경우, context switching이 잦게 발생해 over header가 커진다.
 - 모든 프로세스가 최초 응답 시간을 빠르게 보장받을 수 있다는 큰 장점이 있다.  
     자연스럽게 콘보이 효과 역시 줄어든다.
 
@@ -94,3 +94,8 @@ description: what's about Process Scheduling
 >우선순위가 높은 프로세스에 CPU를 우선 할당하는 방식의 스케줄링\
 >우선 순위는 시간 제한, 메모리 요구량, 프로세스의 중요성, 자원사용 비용 등에 따라 달라질 수 있다.\
 >우선 순위가 같을 경우, FCFS와 다를게 없다.
+
+>**Preemptive scheduling vs Non-Preemptive scheduling**\
+> 역시 가장 큰 차이는 제거할수 있냐? 없냐? 이다.\
+> 스케줄링의 3가지 목적에 따라 위에 것들을 잘 선택해서 사용해야한다.\
+> 보통 선점 스케줄링은 빠른 응답시간과 높은 처리량을 지니고, 비선점 스케줄링은 안정성과 신뢰성이 높다는 장점을 가지고 있다.
